@@ -1,11 +1,14 @@
 import "./App.css";
+import NewNote from "./components/NewNote";
+import ListOfNotes from "./components/ListOfNotes";
 
-function App() {
+const App = () => {
     return (
-        <div className="App">
-            <h1>holis</h1>
+        <div className="app">
+            <NewNote />
+            <ListOfNotes />
         </div>
     );
-}
+};
 
 export default App;

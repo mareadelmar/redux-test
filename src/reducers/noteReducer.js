@@ -2,16 +2,13 @@
 export const noteReducer = (state = [], action) => {
     if (action.type === "@note/created") {
         return [...state, action.payload];
-        // o también --> return state.concat(action.payload);
     }
 
     if (action.type === "@note/toggle-important") {
         const { id } = action.payload;
-        //const note = state.find((item) => item.id === id);
 
         return state.map((note) => {
             if (note.id === id) {
-                // note.important = !note.important; --> no moficar directamente el objeto(*)
                 return {
                     ...note,
                     important: !note.important,
@@ -22,6 +19,31 @@ export const noteReducer = (state = [], action) => {
     }
 
     return state;
+};
+
+// generar id
+const generateId = () => Math.floor(Math.random() * 9999999) + 1;
+
+// action creator: create note
+export const createNote = (content) => {
+    return {
+        type: "@note/created",
+        payload: {
+            content,
+            important: false,
+            id: generateId(),
+        },
+    };
+};
+
+// action creator: toggle importance
+export const toggleImportance = (id) => {
+    return {
+        type: "@note/toggle-important",
+        payload: {
+            id,
+        },
+    };
 };
 
 /*
