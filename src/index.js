@@ -1,12 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import App from "./App";
-import { noteReducer } from "./reducers/noteReducer";
+import { store } from "./store";
 
-// crear store
-const store = createStore(noteReducer);
+// crear store: recibe un solo objeto
+
+// const store = createStore(
+//     combineReducers({
+//         notes: noteReducer,
+//         filter: filterReducer,
+//     })
+// );
 
 ReactDOM.render(
     <Provider store={store}>
