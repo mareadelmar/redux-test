@@ -6,10 +6,10 @@ export const filterReducer = (state = "all", action) => {
 
 // Gestionar el estado de las SLIDES (backoffice)
 
-export const slidesReducer = (state, action) => {
-    console.log(action)
-    return state;
-}
+// export const slidesReducer = (state, action) => {
+//     console.log(action)
+//     return state;
+// }
 
 /*
 - deberá tener una acción para renderizar el listado de los Slides en BackOffice

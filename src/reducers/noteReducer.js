@@ -1,23 +1,6 @@
 // reducer --> funciones puras
 
-// const initialValue = [
-//     {
-//         id: 55125887,
-//         content: "llamen a moe, que larry está en cualquiera",
-//         important: false,
-//     },
-//     {
-//         id: 97422128,
-//         content: "usted se tiene que arrepentir",
-//         important: false,
-//     },
-// ];
-
 export const noteReducer = (state = [], action) => {
-    
-    if (action.type === "@notes/init"){
-        return action.payload;
-    }
     
     if (action.type === "@notes/created") {
         return [...state, action.payload];
@@ -65,12 +48,12 @@ export const toggleImportance = (id) => {
     };
 };
 
-export const notesInit =(notes)=>{
-    return {
-        type:"@notes/init",
-        payload: notes
-    }
-}
+// export const notesInit =(notes)=>{
+//     return {
+//         type:"@notes/init",
+//         payload: notes
+//     }
+// }
 
 /*
 (*) aunque estemos en el map, es un array de objetos y moficaríamos al interior del objeto.

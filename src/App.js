@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import "./App.css";
 import NewNote from "./components/NewNote";
 import ListOfNotes from "./components/ListOfNotes";
-import { getNotes } from "./services/getNotes";
-import { notesInit } from "./reducers/noteReducer";
+//import { getNotes } from "./services/getNotes";
+//import { notesInit } from "./reducers/noteReducer";
+import { getNotesDB } from "./reducers/notesServicesReducer"
 
 const App = () => {
     const dispatch = useDispatch();
@@ -14,9 +15,12 @@ const App = () => {
     };
 
     useEffect(()=>{
-        getNotes().then(notes=>{
-            dispatch(notesInit(notes))
-        }).catch(err=>console.error(err))
+
+        dispatch(getNotesDB()).then(res=> console.log(res))
+
+        // getNotes().then(notes=>{
+        //     dispatch(notesInit(notes))
+        // }).catch(err=>console.error(err))
     },[dispatch])
 
     return (
